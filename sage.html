@@ -1,4 +1,4 @@
-<title>Eleanor & Theodore · Wedding Website (Sage & Sand)</title>
+<title>Eleanor & Theodore · A Wedding at Lake Como</title>
 <meta name="description" content="An elegant, editable heritage wedding website template — Old Money aesthetic. Built in Canva. Our Story, event details, travel, registry, RSVP.">
 <style>
   :root{
@@ -17,6 +17,7 @@
     --body:Garamond,"EB Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
     --label:ui-sans-serif,"Optima","Gill Sans",-apple-system,Segoe UI,sans-serif;
     --wrap:1080px;
+    --img:https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img;
     color-scheme:light;
   }
 
@@ -91,10 +92,22 @@
   /* ---- Hero ---- */
   header.hero{
     text-align:center;
-    padding:88px 0 76px;
+    padding:76px 0 74px;
     position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--rule);
   }
-  .hero .eyebrow{margin-bottom:26px;}
+  header.hero::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:url("https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/hero-como.jpg") center/cover no-repeat;
+  }
+  header.hero::after{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:var(--ivory);opacity:.80;
+  }
+  .hero-inner{position:relative;z-index:1;}
+  .hero-crest{display:block;width:clamp(92px,13vw,140px);height:auto;margin:0 auto 20px;}
+  .hero .eyebrow{margin-bottom:22px;}
   .hero .amp{
     display:block;font-family:var(--display);color:var(--brass);
     font-size:clamp(38px,7vw,64px);font-style:italic;line-height:.7;margin:6px 0;
@@ -106,12 +119,7 @@
   .hero .sub{
     margin-top:30px;font-style:italic;color:var(--ink-soft);font-size:clamp(19px,2.6vw,24px);
   }
-  .rule-orn{
-    display:flex;align-items:center;justify-content:center;gap:16px;
-    margin:34px auto 0;max-width:340px;color:var(--brass);
-  }
-  .rule-orn::before,.rule-orn::after{content:"";height:1px;flex:1;background:var(--rule);}
-  .rule-orn .dot{width:5px;height:5px;transform:rotate(45deg);background:var(--brass);}
+  .divider{display:block;height:auto;width:min(340px,72%);margin:32px auto 0;}
 
   /* countdown */
   .countdown{
@@ -143,16 +151,18 @@
   .story p + p{margin-top:18px;}
   .story h3{font-size:26px;color:var(--oxblood);margin-bottom:10px;}
 
-  /* photo frame placeholder */
+  /* photo frame */
   .frame{
     aspect-ratio:4/5;
     background:var(--paper);
     border:1px solid var(--rule);
     outline:1px solid var(--rule);outline-offset:6px;
+    overflow:hidden;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     gap:12px;text-align:center;color:var(--ink-soft);
     box-shadow:0 18px 40px -28px rgba(36,31,25,.5);
   }
+  .frame img{width:100%;height:100%;object-fit:cover;display:block;}
   .frame .mk{font-family:var(--display);font-size:44px;color:var(--brass-soft);}
   .frame .cap{font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:10.5px;}
   .frame.wide{aspect-ratio:3/2;}
@@ -241,17 +251,15 @@
   /* Footer */
   footer{
     background:var(--green);color:var(--ivory);text-align:center;
-    padding:70px 32px 60px;position:relative;z-index:1;
+    padding:66px 32px 58px;position:relative;z-index:1;
   }
-  footer .fm{font-family:var(--display);font-size:40px;letter-spacing:.06em;}
-  footer .fm span{color:var(--brass-soft);}
+  .footer-crest{display:block;width:104px;height:auto;margin:0 auto 6px;}
   footer .fdate{font-style:italic;margin-top:12px;color:var(--ivory-deep);}
   footer .hash{
     font-family:var(--label);text-transform:uppercase;letter-spacing:.28em;font-size:11px;
-    color:var(--brass-soft);margin-top:28px;
+    color:var(--brass-soft);margin-top:26px;
   }
-  footer .rule-orn{max-width:200px;margin:24px auto;}
-  footer .rule-orn::before,footer .rule-orn::after{background:rgba(196,168,107,.4);}
+  footer .divider{width:220px;margin:20px auto 0;}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease;}
@@ -273,22 +281,25 @@
   </div>
 </nav>
 
-<header class="hero wrap">
-  <div class="eyebrow label">Together with their families</div>
-  <h1>Eleanor<span class="amp">&amp;</span>Theodore</h1>
-  <p class="sub">request the pleasure of your company at their wedding</p>
-  <div class="rule-orn"><span class="dot"></span></div>
+<header class="hero">
+  <div class="wrap hero-inner">
+    <img class="hero-crest" src="https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/crest-et-gold.png" alt="Monogram of Eleanor and Theodore">
+    <div class="eyebrow label">Together with their families</div>
+    <h1>Eleanor<span class="amp">&amp;</span>Theodore</h1>
+    <p class="sub">request the pleasure of your company at their wedding</p>
+    <img class="divider" src="https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/divider-laurel-gold.png" alt="">
 
-  <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
-    <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
-    <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
-    <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
-    <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+    <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+    </div>
+    <p class="sub" style="margin-top:26px;font-style:normal;letter-spacing:.02em;">
+      Saturday, the Twelfth of June · Two Thousand Twenty-Seven<br>
+      <span style="color:var(--brass);">Villa Balbiano · Lake Como, Italy</span>
+    </p>
   </div>
-  <p class="sub" style="margin-top:26px;font-style:normal;letter-spacing:.02em;">
-    Saturday, the Twelfth of June · Two Thousand Twenty-Seven<br>
-    <span style="color:var(--brass);">Villa Balbiano · Lake Como, Italy</span>
-  </p>
 </header>
 
 <section id="story">
@@ -299,8 +310,7 @@
     </div>
     <div class="story reveal">
       <div class="frame">
-        <div class="mk">E&amp;T</div>
-        <div class="cap">Your favourite photo</div>
+        <img src="https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/couple-1.jpg" alt="Eleanor and Theodore">
       </div>
       <div>
         <h3>A long time coming</h3>
@@ -492,9 +502,9 @@
 </section>
 
 <footer>
-  <div class="fm">E&nbsp;<span>&amp;</span>&nbsp;T</div>
+  <img class="footer-crest" src="https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/crest-et-gold.png" alt="Monogram of Eleanor and Theodore">
   <p class="fdate">Lake Como · the Twelfth of June, 2027</p>
-  <div class="rule-orn"><span class="dot"></span></div>
+  <img class="divider" src="https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/divider-laurel-gold.png" alt="">
   <p class="hash">#TheAshfordWhitmoreWedding</p>
 </footer>
 
