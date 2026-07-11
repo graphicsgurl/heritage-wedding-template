@@ -261,13 +261,78 @@
   }
   footer .divider{width:220px;margin:20px auto 0;}
 
+  /* ---- Envelope reveal (intro overlay) ---- */
+  .envelope-cover{
+    position:fixed;inset:0;z-index:50;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:40px 24px;
+    background:
+      radial-gradient(120% 90% at 50% 30%,var(--paper),var(--ivory) 70%);
+  }
+  .envelope-cover.is-open{opacity:0;pointer-events:none;transition:opacity .9s ease;}
+  @media (prefers-reduced-motion:reduce){.envelope-cover.is-open{transition:opacity .2s ease;}}
+  .env-inner{display:flex;flex-direction:column;align-items:center;gap:24px;}
+  .env-eyebrow{color:var(--brass);}
+  .env-names{font-family:var(--display);font-size:clamp(30px,5.4vw,52px);color:var(--green);margin:0;line-height:1;}
+  .env-names span{color:var(--brass);font-style:italic;}
+  .envelope{
+    position:relative;width:clamp(288px,42vw,430px);aspect-ratio:7/5;
+    cursor:pointer;perspective:1500px;
+    filter:drop-shadow(0 26px 46px rgba(36,31,25,.26));
+  }
+  .env-body{
+    position:absolute;inset:0;background:var(--paper);border:1px solid var(--rule);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    overflow:hidden;
+  }
+  .env-body::before{content:"";position:absolute;inset:11px;border:1px solid var(--rule);pointer-events:none;}
+  .env-body .em{font-family:var(--display);font-size:clamp(20px,3vw,27px);color:var(--oxblood);}
+  .env-body .ed{font-family:var(--label);text-transform:uppercase;letter-spacing:.32em;font-size:10.5px;color:var(--ink-soft);}
+  .env-flap{
+    position:absolute;left:0;top:0;width:100%;height:64%;
+    background:var(--ivory-deep);border:1px solid var(--rule);
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;backface-visibility:hidden;
+    transition:transform 1s cubic-bezier(.7,.04,.2,1);
+    z-index:3;
+  }
+  .env-seal{
+    position:absolute;left:50%;top:52%;width:clamp(72px,10vw,102px);height:auto;
+    transform:translate(-50%,-50%);z-index:4;
+    transition:opacity .4s ease,transform .55s ease;
+  }
+  .env-prompt{
+    font-family:var(--label);text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:var(--ink-soft);
+  }
+  .env-prompt::after{content:" ▾";color:var(--brass);}
+  .envelope:hover .env-flap,.envelope:focus-visible .env-flap{transform:rotateX(-16deg);}
+  .envelope-cover.is-open .env-flap{transform:rotateX(-174deg);}
+  .envelope-cover.is-open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.5);}
+  @media (prefers-reduced-motion:reduce){.env-flap,.env-seal{transition:none;}}
+
   /* reveal */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease;}
   .reveal.in{opacity:1;transform:none;}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
 
-<nav>
+<section class="envelope-cover" id="invitation">
+  <div class="env-inner">
+    <p class="env-eyebrow label">The wedding of</p>
+    <h2 class="env-names">Eleanor <span>&amp;</span> Theodore</h2>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the invitation">
+      <div class="env-body">
+        <div class="em">Save the Date</div>
+        <div class="ed">Twelfth of June · 2027</div>
+      </div>
+      <div class="env-flap"></div>
+      <img class="env-seal" src="https://raw.githubusercontent.com/graphicsgurl/heritage-wedding-template/main/img/wax-seal-oxblood.png" alt="Wax seal">
+    </div>
+    <p class="env-prompt">Click to open</p>
+  </div>
+</section>
+
+<nav id="site-top">
   <div class="nav-inner">
     <div class="monogram">E&nbsp;<span>&amp;</span>&nbsp;T</div>
     <ul class="nav-links">
@@ -534,6 +599,22 @@
     msg.textContent = "Thank you — your reply has been noted. We cannot wait to celebrate with you.";
     e.target.reset();
   }
+
+  // Envelope reveal — click the envelope to break the seal and enter the site
+  (function(){
+    var cover = document.querySelector(".envelope-cover");
+    var env = document.getElementById("envelope");
+    if(!cover || !env) return;
+    function openIt(){
+      if(cover.classList.contains("is-open")) return;
+      cover.classList.add("is-open");
+      window.setTimeout(function(){ cover.style.display = "none"; }, 1100);
+    }
+    env.addEventListener("click", openIt);
+    env.addEventListener("keydown", function(e){
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); openIt(); }
+    });
+  })();
 
   // Scroll reveal
   var io = new IntersectionObserver(function(entries){
