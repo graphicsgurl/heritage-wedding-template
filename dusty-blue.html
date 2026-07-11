@@ -1,0 +1,533 @@
+<title>Eleanor & Theodore · Wedding Website (Dusty Blue)</title>
+<meta name="description" content="An elegant, editable heritage wedding website template — Old Money aesthetic. Built in Canva. Our Story, event details, travel, registry, RSVP.">
+<style>
+  :root{
+    --ivory:#ECEFF1;
+    --ivory-deep:#DBE2E6;
+    --paper:#F5F7F8;
+    --green:#3C5A70;
+    --green-deep:#2A4152;
+    --oxblood:#8C5A5A;
+    --brass:#AE9A66;
+    --brass-soft:#C7B588;
+    --ink:#26303A;
+    --ink-soft:#556069;
+    --rule:#C4CDD3;
+    --display:"Didot","Bodoni MT","Hoefler Text",Didone,Garamond,"Times New Roman",serif;
+    --body:Garamond,"EB Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --label:ui-sans-serif,"Optima","Gill Sans",-apple-system,Segoe UI,sans-serif;
+    --wrap:1080px;
+    color-scheme:light;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:19px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* faint engraved paper texture */
+  body::before{
+    content:"";
+    position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(circle at 20% 15%,rgba(168,137,76,.05),transparent 45%),
+      radial-gradient(circle at 85% 80%,rgba(28,58,46,.05),transparent 40%);
+  }
+
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.01em;}
+  p{margin:0;}
+  a{color:inherit;}
+
+  .label{
+    font-family:var(--label);
+    text-transform:uppercase;
+    letter-spacing:.34em;
+    font-size:12px;
+    font-weight:500;
+    color:var(--brass);
+  }
+
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+
+  /* ---- Nav ---- */
+  nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(242,238,228,.86);
+    backdrop-filter:saturate(120%) blur(8px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:var(--wrap);margin:0 auto;padding:14px 32px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .monogram{
+    font-family:var(--display);font-size:22px;letter-spacing:.08em;color:var(--green);
+    display:flex;align-items:center;gap:10px;
+  }
+  .monogram span{color:var(--brass);}
+  .nav-links{display:flex;gap:30px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;
+    font-size:11.5px;text-decoration:none;color:var(--ink-soft);
+    padding:4px 0;border-bottom:1px solid transparent;transition:.25s;
+  }
+  .nav-links a:hover,.nav-links a:focus-visible{color:var(--green);border-color:var(--brass);}
+  .nav-toggle{display:none;}
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .nav-inner{justify-content:center;}
+  }
+
+  /* ---- Hero ---- */
+  header.hero{
+    text-align:center;
+    padding:88px 0 76px;
+    position:relative;
+  }
+  .hero .eyebrow{margin-bottom:26px;}
+  .hero .amp{
+    display:block;font-family:var(--display);color:var(--brass);
+    font-size:clamp(38px,7vw,64px);font-style:italic;line-height:.7;margin:6px 0;
+  }
+  .hero h1{
+    font-size:clamp(52px,11vw,116px);
+    color:var(--green);line-height:.98;
+  }
+  .hero .sub{
+    margin-top:30px;font-style:italic;color:var(--ink-soft);font-size:clamp(19px,2.6vw,24px);
+  }
+  .rule-orn{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    margin:34px auto 0;max-width:340px;color:var(--brass);
+  }
+  .rule-orn::before,.rule-orn::after{content:"";height:1px;flex:1;background:var(--rule);}
+  .rule-orn .dot{width:5px;height:5px;transform:rotate(45deg);background:var(--brass);}
+
+  /* countdown */
+  .countdown{
+    display:flex;justify-content:center;gap:clamp(20px,6vw,58px);
+    margin:52px 0 8px;
+  }
+  .cd-unit{text-align:center;min-width:58px;}
+  .cd-num{
+    font-family:var(--display);font-size:clamp(38px,6vw,58px);color:var(--green);
+    line-height:1;font-variant-numeric:tabular-nums;
+  }
+  .cd-lab{
+    font-family:var(--label);text-transform:uppercase;letter-spacing:.24em;
+    font-size:10.5px;color:var(--ink-soft);margin-top:10px;
+  }
+
+  /* ---- Section scaffolding ---- */
+  section{padding:78px 0;position:relative;}
+  section + section{border-top:1px solid var(--rule);}
+  .sec-head{text-align:center;margin-bottom:52px;}
+  .sec-head h2{font-size:clamp(32px,5vw,50px);color:var(--green);margin-top:16px;}
+  .sec-head .label{display:block;}
+
+  .lede{max-width:60ch;margin:0 auto;text-align:center;color:var(--ink-soft);}
+
+  /* Story */
+  .story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  @media(max-width:760px){.story{grid-template-columns:1fr;gap:36px;}}
+  .story p + p{margin-top:18px;}
+  .story h3{font-size:26px;color:var(--oxblood);margin-bottom:10px;}
+
+  /* photo frame placeholder */
+  .frame{
+    aspect-ratio:4/5;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    outline:1px solid var(--rule);outline-offset:6px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:12px;text-align:center;color:var(--ink-soft);
+    box-shadow:0 18px 40px -28px rgba(36,31,25,.5);
+  }
+  .frame .mk{font-family:var(--display);font-size:44px;color:var(--brass-soft);}
+  .frame .cap{font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:10.5px;}
+  .frame.wide{aspect-ratio:3/2;}
+
+  /* Detail cards */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:34px;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .card{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:44px 40px;text-align:center;
+    position:relative;
+  }
+  .card::after{
+    content:"";position:absolute;inset:9px;border:1px solid var(--rule);pointer-events:none;
+  }
+  .card h3{font-size:29px;color:var(--green);margin-bottom:6px;}
+  .card .role{margin-bottom:22px;}
+  .card .venue{font-style:italic;font-size:21px;margin-bottom:4px;}
+  .card .meta{color:var(--ink-soft);font-size:17px;line-height:1.9;}
+  .card .meta strong{font-weight:400;color:var(--ink);}
+
+  /* Schedule / timeline */
+  .timeline{max-width:600px;margin:0 auto;}
+  .tl-row{
+    display:grid;grid-template-columns:130px 1fr;gap:26px;
+    padding:22px 0;border-bottom:1px solid var(--rule);align-items:baseline;
+  }
+  .tl-row:last-child{border-bottom:none;}
+  .tl-time{font-family:var(--display);font-size:24px;color:var(--oxblood);font-variant-numeric:tabular-nums;}
+  .tl-title{font-size:21px;color:var(--green);}
+  .tl-desc{color:var(--ink-soft);font-size:16.5px;margin-top:4px;}
+
+  /* Travel */
+  .travel{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  @media(max-width:760px){.travel{grid-template-columns:1fr;}}
+  .tcard{text-align:center;padding:8px;}
+  .tcard .tnum{font-family:var(--display);font-size:30px;color:var(--brass);}
+  .tcard h3{font-size:22px;color:var(--green);margin:12px 0 8px;}
+  .tcard p{color:var(--ink-soft);font-size:16.5px;}
+
+  /* Registry / generic centered block */
+  .center-block{text-align:center;max-width:64ch;margin:0 auto;}
+  .center-block p{color:var(--ink-soft);margin-top:6px;}
+
+  .btn{
+    display:inline-block;margin-top:30px;
+    font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:12px;
+    color:var(--paper);background:var(--green);
+    padding:16px 40px;text-decoration:none;border:1px solid var(--green);
+    transition:.25s;
+  }
+  .btn:hover,.btn:focus-visible{background:var(--green-deep);}
+  .btn.ghost{background:transparent;color:var(--green);}
+  .btn.ghost:hover{background:var(--green);color:var(--paper);}
+
+  /* RSVP form */
+  .rsvp-wrap{max-width:620px;margin:0 auto;}
+  form{display:grid;gap:22px;margin-top:14px;}
+  .field{display:grid;gap:8px;text-align:left;}
+  .field label{font-family:var(--label);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--ink-soft);}
+  .field input,.field select,.field textarea{
+    font-family:var(--body);font-size:18px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--rule);
+    padding:13px 15px;border-radius:0;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass);
+  }
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:560px){.row2{grid-template-columns:1fr;}}
+  form .btn{border:none;cursor:pointer;justify-self:center;}
+
+  /* FAQ */
+  .faq{max-width:720px;margin:0 auto;}
+  details{border-bottom:1px solid var(--rule);padding:20px 0;}
+  summary{
+    font-family:var(--display);font-size:23px;color:var(--green);cursor:pointer;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"＋";color:var(--brass);font-family:var(--body);font-size:26px;}
+  details[open] summary::after{content:"–";}
+  details p{color:var(--ink-soft);margin-top:14px;font-size:17px;}
+
+  /* Footer */
+  footer{
+    background:var(--green);color:var(--ivory);text-align:center;
+    padding:70px 32px 60px;position:relative;z-index:1;
+  }
+  footer .fm{font-family:var(--display);font-size:40px;letter-spacing:.06em;}
+  footer .fm span{color:var(--brass-soft);}
+  footer .fdate{font-style:italic;margin-top:12px;color:var(--ivory-deep);}
+  footer .hash{
+    font-family:var(--label);text-transform:uppercase;letter-spacing:.28em;font-size:11px;
+    color:var(--brass-soft);margin-top:28px;
+  }
+  footer .rule-orn{max-width:200px;margin:24px auto;}
+  footer .rule-orn::before,footer .rule-orn::after{background:rgba(196,168,107,.4);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <div class="monogram">E&nbsp;<span>&amp;</span>&nbsp;T</div>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#registry">Registry</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow label">Together with their families</div>
+  <h1>Eleanor<span class="amp">&amp;</span>Theodore</h1>
+  <p class="sub">request the pleasure of your company at their wedding</p>
+  <div class="rule-orn"><span class="dot"></span></div>
+
+  <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
+    <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+  </div>
+  <p class="sub" style="margin-top:26px;font-style:normal;letter-spacing:.02em;">
+    Saturday, the Twelfth of June · Two Thousand Twenty-Seven<br>
+    <span style="color:var(--brass);">Villa Balbiano · Lake Como, Italy</span>
+  </p>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">How it began</span>
+      <h2>Our Story</h2>
+    </div>
+    <div class="story reveal">
+      <div class="frame">
+        <div class="mk">E&amp;T</div>
+        <div class="cap">Your favourite photo</div>
+      </div>
+      <div>
+        <h3>A long time coming</h3>
+        <p>We met one grey October at a friend's gallery opening, where Theodore was quietly convinced the sculpture was hung upside down and Eleanor was quietly certain he was wrong. Two hours and a great deal of terrible wine later, neither of us had conceded the point — and neither of us wanted the evening to end.</p>
+        <p>Seven years, three cities, and one very opinionated spaniel later, we are still arguing about that sculpture. We would be honoured to have you with us as we make it official on the shores of Lake Como.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="details">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Save the day</span>
+      <h2>The Celebration</h2>
+    </div>
+    <div class="cards reveal">
+      <div class="card">
+        <div class="label role">The Ceremony</div>
+        <h3>Four o'clock</h3>
+        <p class="venue">Villa Balbiano, Gardens</p>
+        <p class="meta">
+          <strong>Ossuccio, Lake Como</strong><br>
+          Half past three for a four o'clock service<br>
+          Followed by aperitivo on the terrace
+        </p>
+      </div>
+      <div class="card">
+        <div class="label role">The Reception</div>
+        <h3>Seven o'clock</h3>
+        <p class="venue">The Orangery &amp; Lakeside Lawn</p>
+        <p class="meta">
+          <strong>Dinner, dancing &amp; toasts</strong><br>
+          Black tie · Long dresses<br>
+          Carriages at one o'clock
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">The order of the day</span>
+      <h2>Schedule</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-row">
+        <div class="tl-time">3:30</div>
+        <div><div class="tl-title">Guests Arrive</div><div class="tl-desc">Welcome drinks in the lower garden.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">4:00</div>
+        <div><div class="tl-title">Ceremony</div><div class="tl-desc">Please be seated by ten minutes to four.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">4:45</div>
+        <div><div class="tl-title">Aperitivo &amp; Photographs</div><div class="tl-desc">Prosecco, canapés, and golden hour on the terrace.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">7:00</div>
+        <div><div class="tl-title">Dinner Is Served</div><div class="tl-desc">A long-table feast in the Orangery.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">9:30</div>
+        <div><div class="tl-title">First Dance &amp; Dancing</div><div class="tl-desc">The band plays until late.</div></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-time">1:00</div>
+        <div><div class="tl-title">Carriages</div><div class="tl-desc">A last glass, and home across the water.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="travel">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Making a weekend of it</span>
+      <h2>Travel &amp; Stay</h2>
+    </div>
+    <p class="lede reveal">Como is loveliest in June. We have gathered a few notes to make the journey simple — from the nearest airports to the hotels holding rooms in our name.</p>
+    <div class="travel reveal" style="margin-top:48px;">
+      <div class="tcard">
+        <div class="tnum">I.</div>
+        <h3>Getting There</h3>
+        <p>Fly into Milan Malpensa (MXP), one hour by car. Private transfers can be arranged on request.</p>
+      </div>
+      <div class="tcard">
+        <div class="tnum">II.</div>
+        <h3>Where to Stay</h3>
+        <p>Room blocks held at the Grand Hotel Tremezzo and Villa d'Este. Mention the Ashford–Whitmore wedding.</p>
+      </div>
+      <div class="tcard">
+        <div class="tnum">III.</div>
+        <h3>Things to Do</h3>
+        <p>Boat the lake, wander Bellagio's gardens, or simply take a long lunch. We recommend all three.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="registry">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Your presence is the present</span>
+      <h2>Registry</h2>
+    </div>
+    <div class="center-block reveal">
+      <p>Your being there means more to us than anything we could unwrap. Should you wish to mark the occasion with a gift, we have put together a small registry — and are quietly saving toward a honeymoon along the Amalfi coast.</p>
+      <a class="btn ghost" href="#" onclick="return false;">View the Registry</a>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Kindly reply by the First of May</span>
+      <h2>RSVP</h2>
+    </div>
+    <div class="rsvp-wrap reveal">
+      <p class="lede">We can hardly wait to celebrate with you. Please let us know if you can join us.</p>
+      <form onsubmit="handleRsvp(event)">
+        <div class="field">
+          <label for="name">Full Name(s)</label>
+          <input id="name" name="name" type="text" placeholder="Mr &amp; Mrs Ashford" required>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="attending">Will you attend?</label>
+            <select id="attending" name="attending" required>
+              <option value="" disabled selected>Please choose…</option>
+              <option>Joyfully accepts</option>
+              <option>Regretfully declines</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="guests">Number in your party</label>
+            <input id="guests" name="guests" type="number" min="1" max="6" value="2">
+          </div>
+        </div>
+        <div class="field">
+          <label for="menu">Menu preference</label>
+          <select id="menu" name="menu">
+            <option>No preference</option>
+            <option>Fish</option>
+            <option>Vegetarian</option>
+            <option>Dietary requirements (note below)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="note">A note for the couple</label>
+          <textarea id="note" name="note" rows="3" placeholder="A song you must dance to, or anything we should know."></textarea>
+        </div>
+        <button class="btn" type="submit">Send Our Reply</button>
+      </form>
+      <p id="rsvp-msg" style="text-align:center;margin-top:22px;color:var(--oxblood);font-style:italic;" hidden></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">Everything else</span>
+      <h2>Questions</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>What should I wear?</summary>
+        <p>Black tie — long dresses and dinner jackets. The ceremony is on the lawn, so heels and soft grass may need reconsidering.</p>
+      </details>
+      <details>
+        <summary>May I bring a plus-one?</summary>
+        <p>Your invitation will name everyone we have reserved a seat for. If you have a question about your party, do write to us.</p>
+      </details>
+      <details>
+        <summary>Are children welcome?</summary>
+        <p>We adore your little ones, but this will be an adults-only celebration — a proper night off for the parents among us.</p>
+      </details>
+      <details>
+        <summary>Is there parking at the villa?</summary>
+        <p>Valet parking is available at the gate. We do encourage the shuttle from the hotels — the lake road is narrow and the wine is good.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fm">E&nbsp;<span>&amp;</span>&nbsp;T</div>
+  <p class="fdate">Lake Como · the Twelfth of June, 2027</p>
+  <div class="rule-orn"><span class="dot"></span></div>
+  <p class="hash">#TheAshfordWhitmoreWedding</p>
+</footer>
+
+<script>
+  // Live countdown — target the wedding date. Buyers simply change this line.
+  var WEDDING = new Date("2027-06-12T16:00:00+02:00").getTime();
+  function tick(){
+    var now = Date.now();
+    var d = WEDDING - now;
+    if(d < 0){ d = 0; }
+    var days = Math.floor(d/86400000);
+    var hours = Math.floor(d%86400000/3600000);
+    var mins = Math.floor(d%3600000/60000);
+    var secs = Math.floor(d%60000/1000);
+    document.getElementById("cd-days").textContent = days;
+    document.getElementById("cd-hours").textContent = String(hours).padStart(2,"0");
+    document.getElementById("cd-mins").textContent = String(mins).padStart(2,"0");
+    document.getElementById("cd-secs").textContent = String(secs).padStart(2,"0");
+  }
+  tick(); setInterval(tick,1000);
+
+  // RSVP demo handler (template buyers connect this to a Google Form or Canva form)
+  function handleRsvp(e){
+    e.preventDefault();
+    var msg = document.getElementById("rsvp-msg");
+    msg.hidden = false;
+    msg.textContent = "Thank you — your reply has been noted. We cannot wait to celebrate with you.";
+    e.target.reset();
+  }
+
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+</script>
