@@ -1,5 +1,6 @@
-<title>Eleanor & Theodore · A Wedding at Lake Como</title>
-<meta name="description" content="An elegant, editable heritage wedding website template — Old Money aesthetic. Built in Canva. Our Story, event details, travel, registry, RSVP.">
+<meta charset="utf-8">
+<title>Eleanor & Theodore &middot; A Wedding at Lake Como</title>
+<meta name="description" content="An elegant, editable heritage wedding website template &mdash; Old Money aesthetic. Built in Canva. Our Story, event details, travel, registry, RSVP.">
 <style>
   :root{
     --ivory:#EEEDE3;
@@ -97,10 +98,7 @@
     overflow:hidden;
     border-bottom:1px solid var(--rule);
   }
-  header.hero::before{
-    content:"";position:absolute;inset:0;z-index:0;
-    background:url("img/hero-como.jpg") center/cover no-repeat;
-  }
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
   header.hero::after{
     content:"";position:absolute;inset:0;z-index:0;
     background:var(--ivory);opacity:.80;
@@ -244,10 +242,15 @@
     list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;
   }
   summary::-webkit-details-marker{display:none;}
-  summary::after{content:"＋";color:var(--brass);font-family:var(--body);font-size:26px;}
-  details[open] summary::after{content:"–";}
+  summary::after{content:"\002B";color:var(--brass);font-family:var(--body);font-size:26px;}
+  details[open] summary::after{content:"\2013";}
   details p{color:var(--ink-soft);margin-top:14px;font-size:17px;}
 
+
+  .faq .qa{border-bottom:1px solid var(--rule);padding:22px 0;}
+  .faq .qa:last-child{border-bottom:none;}
+  .faq .q{font-family:var(--display);font-size:22px;color:var(--green);margin:0 0 8px;}
+  .faq .a{color:var(--ink-soft);margin:0;font-size:16px;line-height:1.7;}
   /* Footer */
   footer{
     background:var(--green);color:var(--ivory);text-align:center;
@@ -304,7 +307,7 @@
   .env-prompt{
     font-family:var(--label);text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:var(--ink-soft);
   }
-  .env-prompt::after{content:" ▾";color:var(--brass);}
+  .env-prompt::after{content:" \25BE";color:var(--brass);}
   .envelope:hover .env-flap,.envelope:focus-visible .env-flap{transform:rotateX(-16deg);}
   .envelope-cover.is-open .env-flap{transform:rotateX(-174deg);}
   .envelope-cover.is-open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.5);}
@@ -323,10 +326,10 @@
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the invitation">
       <div class="env-body">
         <div class="em">Save the Date</div>
-        <div class="ed">Twelfth of June · 2027</div>
+        <div class="ed">Twelfth of June &middot; 2027</div>
       </div>
       <div class="env-flap"></div>
-      <img class="env-seal" src="img/wax-seal-oxblood.png" alt="Wax seal">
+      <img class="env-seal" src="https://graphicsgurl.github.io/heritage-wedding-template/img/wax-seal-oxblood.png" alt="Wax seal">
     </div>
     <p class="env-prompt">Click to open</p>
   </div>
@@ -347,22 +350,23 @@
 </nav>
 
 <header class="hero">
+  <img class="hero-bg" src="https://graphicsgurl.github.io/heritage-wedding-template/img/hero-como.jpg" alt="Wedding backdrop">
   <div class="wrap hero-inner">
-    <img class="hero-crest" src="img/crest-et-gold.png" alt="Monogram of Eleanor and Theodore">
+    <img class="hero-crest" src="https://graphicsgurl.github.io/heritage-wedding-template/img/crest-et-gold.png" alt="Monogram of Eleanor and Theodore">
     <div class="eyebrow label">Together with their families</div>
     <h1>Eleanor<span class="amp">&amp;</span>Theodore</h1>
     <p class="sub">request the pleasure of your company at their wedding</p>
-    <img class="divider" src="img/divider-laurel-gold.png" alt="">
+    <img class="divider" src="https://graphicsgurl.github.io/heritage-wedding-template/img/divider-laurel-gold.png" alt="">
 
     <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
-      <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-days">&mdash;</div><div class="cd-lab">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">&mdash;</div><div class="cd-lab">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">&mdash;</div><div class="cd-lab">Minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-secs">&mdash;</div><div class="cd-lab">Seconds</div></div>
     </div>
     <p class="sub" style="margin-top:26px;font-style:normal;letter-spacing:.02em;">
-      Saturday, the Twelfth of June · Two Thousand Twenty-Seven<br>
-      <span style="color:var(--brass);">Villa Balbiano · Lake Como, Italy</span>
+      Saturday, the Twelfth of June &middot; Two Thousand Twenty-Seven<br>
+      <span style="color:var(--brass);">Villa Balbiano &middot; Lake Como, Italy</span>
     </p>
   </div>
 </header>
@@ -375,11 +379,11 @@
     </div>
     <div class="story reveal">
       <div class="frame">
-        <img src="img/couple-1.jpg" alt="Eleanor and Theodore">
+        <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/couple-1.jpg" alt="Eleanor and Theodore">
       </div>
       <div>
         <h3>A long time coming</h3>
-        <p>We met one grey October at a friend's gallery opening, where Theodore was quietly convinced the sculpture was hung upside down and Eleanor was quietly certain he was wrong. Two hours and a great deal of terrible wine later, neither of us had conceded the point — and neither of us wanted the evening to end.</p>
+        <p>We met one grey October at a friend's gallery opening, where Theodore was quietly convinced the sculpture was hung upside down and Eleanor was quietly certain he was wrong. Two hours and a great deal of terrible wine later, neither of us had conceded the point &mdash; and neither of us wanted the evening to end.</p>
         <p>Seven years, three cities, and one very opinionated spaniel later, we are still arguing about that sculpture. We would be honoured to have you with us as we make it official on the shores of Lake Como.</p>
       </div>
     </div>
@@ -409,7 +413,7 @@
         <p class="venue">The Orangery &amp; Lakeside Lawn</p>
         <p class="meta">
           <strong>Dinner, dancing &amp; toasts</strong><br>
-          Black tie · Long dresses<br>
+          Black tie &middot; Long dresses<br>
           Carriages at one o'clock
         </p>
       </div>
@@ -434,7 +438,7 @@
       </div>
       <div class="tl-row">
         <div class="tl-time">4:45</div>
-        <div><div class="tl-title">Aperitivo &amp; Photographs</div><div class="tl-desc">Prosecco, canapés, and golden hour on the terrace.</div></div>
+        <div><div class="tl-title">Aperitivo &amp; Photographs</div><div class="tl-desc">Prosecco, canap&eacute;s, and golden hour on the terrace.</div></div>
       </div>
       <div class="tl-row">
         <div class="tl-time">7:00</div>
@@ -458,7 +462,7 @@
       <span class="label">Making a weekend of it</span>
       <h2>Travel &amp; Stay</h2>
     </div>
-    <p class="lede reveal">Como is loveliest in June. We have gathered a few notes to make the journey simple — from the nearest airports to the hotels holding rooms in our name.</p>
+    <p class="lede reveal">Como is loveliest in June. We have gathered a few notes to make the journey simple &mdash; from the nearest airports to the hotels holding rooms in our name.</p>
     <div class="travel reveal" style="margin-top:48px;">
       <div class="tcard">
         <div class="tnum">I.</div>
@@ -486,7 +490,7 @@
       <h2>Registry</h2>
     </div>
     <div class="center-block reveal">
-      <p>Your being there means more to us than anything we could unwrap. Should you wish to mark the occasion with a gift, we have put together a small registry — and are quietly saving toward a honeymoon along the Amalfi coast.</p>
+      <p>Your being there means more to us than anything we could unwrap. Should you wish to mark the occasion with a gift, we have put together a small registry &mdash; and are quietly saving toward a honeymoon along the Amalfi coast.</p>
       <a class="btn ghost" href="#" onclick="return false;">View the Registry</a>
     </div>
   </div>
@@ -500,41 +504,7 @@
     </div>
     <div class="rsvp-wrap reveal">
       <p class="lede">We can hardly wait to celebrate with you. Please let us know if you can join us.</p>
-      <form onsubmit="handleRsvp(event)">
-        <div class="field">
-          <label for="name">Full Name(s)</label>
-          <input id="name" name="name" type="text" placeholder="Mr &amp; Mrs Ashford" required>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label for="attending">Will you attend?</label>
-            <select id="attending" name="attending" required>
-              <option value="" disabled selected>Please choose…</option>
-              <option>Joyfully accepts</option>
-              <option>Regretfully declines</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="guests">Number in your party</label>
-            <input id="guests" name="guests" type="number" min="1" max="6" value="2">
-          </div>
-        </div>
-        <div class="field">
-          <label for="menu">Menu preference</label>
-          <select id="menu" name="menu">
-            <option>No preference</option>
-            <option>Fish</option>
-            <option>Vegetarian</option>
-            <option>Dietary requirements (note below)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="note">A note for the couple</label>
-          <textarea id="note" name="note" rows="3" placeholder="A song you must dance to, or anything we should know."></textarea>
-        </div>
-        <button class="btn" type="submit">Send Our Reply</button>
-      </form>
-      <p id="rsvp-msg" style="text-align:center;margin-top:22px;color:var(--oxblood);font-style:italic;" hidden></p>
+      <div style="text-align:center;margin-top:8px;"><a class="btn" href="#" onclick="return false;">RSVP</a></div>
     </div>
   </div>
 </section>
@@ -546,35 +516,23 @@
       <h2>Questions</h2>
     </div>
     <div class="faq reveal">
-      <details>
-        <summary>What should I wear?</summary>
-        <p>Black tie — long dresses and dinner jackets. The ceremony is on the lawn, so heels and soft grass may need reconsidering.</p>
-      </details>
-      <details>
-        <summary>May I bring a plus-one?</summary>
-        <p>Your invitation will name everyone we have reserved a seat for. If you have a question about your party, do write to us.</p>
-      </details>
-      <details>
-        <summary>Are children welcome?</summary>
-        <p>We adore your little ones, but this will be an adults-only celebration — a proper night off for the parents among us.</p>
-      </details>
-      <details>
-        <summary>Is there parking at the villa?</summary>
-        <p>Valet parking is available at the gate. We do encourage the shuttle from the hotels — the lake road is narrow and the wine is good.</p>
-      </details>
+      <div class="qa"><h3 class="q">What should I wear?</h3><p class="a">Black tie &mdash; long dresses and dinner jackets. The ceremony is on the lawn, so heels and soft grass may need reconsidering.</p></div>
+      <div class="qa"><h3 class="q">May I bring a plus-one?</h3><p class="a">Your invitation will name everyone we have reserved a seat for. If you have a question about your party, do write to us.</p></div>
+      <div class="qa"><h3 class="q">Are children welcome?</h3><p class="a">We adore your little ones, but this will be an adults-only celebration &mdash; a proper night off for the parents among us.</p></div>
+      <div class="qa"><h3 class="q">Is there parking at the villa?</h3><p class="a">Valet parking is available at the gate. We do encourage the shuttle from the hotels &mdash; the lake road is narrow and the wine is good.</p></div>
     </div>
   </div>
 </section>
 
 <footer>
-  <img class="footer-crest" src="img/crest-et-gold.png" alt="Monogram of Eleanor and Theodore">
-  <p class="fdate">Lake Como · the Twelfth of June, 2027</p>
-  <img class="divider" src="img/divider-laurel-gold.png" alt="">
+  <img class="footer-crest" src="https://graphicsgurl.github.io/heritage-wedding-template/img/crest-et-gold.png" alt="Monogram of Eleanor and Theodore">
+  <p class="fdate">Lake Como &middot; the Twelfth of June, 2027</p>
+  <img class="divider" src="https://graphicsgurl.github.io/heritage-wedding-template/img/divider-laurel-gold.png" alt="">
   <p class="hash">#TheAshfordWhitmoreWedding</p>
 </footer>
 
 <script>
-  // Live countdown — target the wedding date. Buyers simply change this line.
+  // Live countdown &mdash; target the wedding date. Buyers simply change this line.
   var WEDDING = new Date("2027-06-12T16:00:00+02:00").getTime();
   function tick(){
     var now = Date.now();
@@ -596,11 +554,11 @@
     e.preventDefault();
     var msg = document.getElementById("rsvp-msg");
     msg.hidden = false;
-    msg.textContent = "Thank you — your reply has been noted. We cannot wait to celebrate with you.";
+    msg.textContent = "Thank you &mdash; your reply has been noted. We cannot wait to celebrate with you.";
     e.target.reset();
   }
 
-  // Envelope reveal — click the envelope to break the seal and enter the site
+  // Envelope reveal &mdash; click the envelope to break the seal and enter the site
   (function(){
     var cover = document.querySelector(".envelope-cover");
     var env = document.getElementById("envelope");
