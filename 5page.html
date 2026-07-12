@@ -51,6 +51,11 @@
   .qa p{color:var(--ink-soft);font-size:16px;}
 
   .divider-slot{--w:300px;--ar:6/1;border-style:solid;border-color:var(--rule);background:transparent;}
+
+  /* wedding colour swatches */
+  .swatches{display:flex;justify-content:center;gap:18px;margin:14px 0 6px;flex-wrap:wrap;}
+  .sw{width:46px;height:46px;border-radius:50%;box-shadow:inset 0 -6px 10px rgba(0,0,0,.12),0 5px 14px -6px rgba(0,0,0,.35);}
+  .sw-lab{font-family:var(--label);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ink-soft);}
 </style>
 
 <!-- ============ PAGE 1 · ENVELOPE (closed) ============ -->
@@ -114,7 +119,18 @@
 
     <div class="block"><h3>Venue</h3><p class="meta"><strong>Villa Balbiano</strong><br>Ossuccio · Lake Como, Italy</p></div>
     <div class="block"><h3>The Day</h3><p class="meta">3:30 — Guests arrive · welcome drinks<br>4:00 — Ceremony in the gardens<br>4:45 — Aperitivo &amp; photographs<br>7:00 — Dinner in the Orangery<br>9:30 — First dance &amp; dancing<br>1:00 — Carriages</p></div>
-    <div class="block"><h3>Dress Code &amp; Palette</h3><p class="meta">Black tie · Long dresses<br>Heritage green, ivory &amp; gold</p></div>
+    <div class="block"><h3>Dress Code</h3><p class="meta">Black tie · Long dresses</p></div>
+    <div class="block">
+      <h3>Our Colours</h3>
+      <div class="swatches">
+        <span class="sw" style="background:var(--green);"></span>
+        <span class="sw" style="background:var(--ivory-deep);"></span>
+        <span class="sw" style="background:var(--brass);"></span>
+        <span class="sw" style="background:var(--oxblood);"></span>
+      </div>
+      <p class="sw-lab">Heritage green · ivory · antique gold · oxblood</p>
+      <p class="meta" style="font-size:13px;font-style:italic;margin-top:6px;">↑ or swap these for hand-painted swatches: <b>gp-swatches.png</b></p>
+    </div>
     <div class="slot" style="--w:340px;--ar:2/3;"><span class="n">Venue Map</span><span class="f">suite-map.png</span></div>
     <div class="block"><h3>Travel &amp; Stay</h3><p class="meta">Fly into Milan Malpensa (MXP), 1 hr by car.<br>Room blocks: Grand Hotel Tremezzo &amp; Villa d'Este.</p></div>
     <div class="block"><h3>Registry</h3><p class="meta">Your presence is the present. A small registry link lives here.</p></div>
