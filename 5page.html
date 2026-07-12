@@ -1,0 +1,170 @@
+<meta charset="utf-8">
+<title>Eleanor & Theodore · Heritage Wedding Website (5-page)</title>
+<style>
+  :root{
+    --ivory:#F2EEE4;--ivory-deep:#E7E1D2;--paper:#F7F4EC;
+    --green:#1C3A2E;--green-deep:#132A21;--oxblood:#5E2028;
+    --brass:#A8894C;--brass-soft:#C4A86B;--ink:#241F19;--ink-soft:#5A5245;--rule:#CFC6B2;
+    --display:"Didot","Bodoni MT","Hoefler Text",Didone,Garamond,"Times New Roman",serif;
+    --body:Garamond,"EB Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --label:ui-sans-serif,"Optima","Gill Sans",-apple-system,Segoe UI,sans-serif;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;}
+  p{margin:0;}
+  a{color:inherit;}
+  .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.34em;font-size:12px;font-weight:500;color:var(--brass);}
+  .page{max-width:600px;margin:0 auto;padding:64px 26px 40px;text-align:center;}
+  .stack{display:flex;flex-direction:column;align-items:center;gap:30px;}
+
+  /* labeled image slot — swap for a real transparent PNG later */
+  .slot{width:100%;max-width:var(--w,440px);aspect-ratio:var(--ar,3/2);margin:0 auto;
+    border:1px dashed var(--brass-soft);border-radius:4px;background:var(--paper);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--ink-soft);}
+  .slot .n{font-family:var(--label);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--brass);}
+  .slot .f{font-size:12px;font-style:italic;}
+
+  .names{font-family:var(--display);font-size:clamp(40px,9vw,72px);color:var(--green);line-height:1;}
+  .names span{color:var(--brass);font-style:italic;}
+  .sub{font-style:italic;color:var(--ink-soft);font-size:20px;}
+  .cta{font-family:var(--label);text-transform:uppercase;letter-spacing:.24em;font-size:14px;font-weight:700;color:var(--green);text-decoration:none;}
+  .back{font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--ink-soft);text-decoration:none;display:inline-block;margin-top:20px;}
+
+  .countdown{display:flex;justify-content:center;gap:clamp(16px,6vw,44px);}
+  .cd-num{font-family:var(--display);font-size:clamp(34px,7vw,52px);color:var(--green);line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-lab{font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:10px;color:var(--ink-soft);margin-top:8px;}
+
+  .sec-title{font-size:clamp(30px,6vw,44px);color:var(--green);}
+  .lede{color:var(--ink-soft);max-width:52ch;margin:0 auto;}
+  .block{width:100%;}
+  .block h3{font-size:24px;color:var(--oxblood);margin-bottom:6px;}
+  .block .meta{color:var(--ink-soft);font-size:16.5px;line-height:1.9;}
+
+  /* suite-card navigation (clickable graphics → pages) */
+  .suite-nav{display:flex;flex-direction:column;gap:22px;width:100%;}
+  .suite-link{text-decoration:none;color:inherit;}
+  .qa{border-top:1px solid var(--rule);padding:22px 0;}
+  .qa:last-child{border-bottom:1px solid var(--rule);}
+  .qa h3{font-family:var(--display);font-size:22px;color:var(--green);margin:0 0 8px;}
+  .qa p{color:var(--ink-soft);font-size:16px;}
+
+  .divider-slot{--w:300px;--ar:6/1;border-style:solid;border-color:var(--rule);background:transparent;}
+</style>
+
+<!-- ============ PAGE 1 · ENVELOPE (closed) ============ -->
+<section data-document-role="page" data-label="Home">
+  <div class="page stack">
+    <p class="label">Together with their families</p>
+    <div class="slot" style="--w:150px;--ar:1/1;"><span class="n">Crest</span><span class="f">crest-et-gold.png</span></div>
+    <h1 class="names">Eleanor <span>&amp;</span> Theodore</h1>
+    <div class="slot" style="--w:460px;--ar:3/2;"><span class="n">Closed Envelope</span><span class="f">env-closed.png</span></div>
+    <a class="cta" href="#open">Click to Open&nbsp;&nbsp;↓</a>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 · THE INVITATION (open envelope + suite) ============ -->
+<section data-document-role="page" data-label="The Invitation" id="open">
+  <div class="page stack">
+    <div class="slot" style="--w:520px;--ar:3/2;"><span class="n">Open Envelope</span><span class="f">env-open.png</span></div>
+
+    <div class="slot" style="--w:360px;--ar:2/3;">
+      <span class="n">Invitation Card</span><span class="f">suite-invitation.png</span>
+    </div>
+    <div>
+      <p class="label">The wedding of</p>
+      <h2 class="names" style="font-size:clamp(32px,7vw,54px);">Eleanor <span>&amp;</span> Theodore</h2>
+      <p class="sub" style="margin-top:12px;">Saturday, the Twelfth of June · 2027<br><span style="color:var(--brass);">Villa Balbiano · Lake Como, Italy</span></p>
+    </div>
+
+    <div class="divider-slot slot"><span class="f">gp-divider.png</span></div>
+
+    <div class="countdown" aria-label="Countdown">
+      <div><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
+      <div><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
+      <div><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
+      <div><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+    </div>
+    <p class="label" style="font-size:10px;">↑ Replace with a TickCounter embed</p>
+
+    <div class="slot" style="--w:300px;--ar:3/2;"><span class="n">Love Note</span><span class="f">suite-love-note.png</span></div>
+    <div>
+      <h3 style="font-family:var(--display);font-size:26px;color:var(--oxblood);margin-bottom:10px;">Our Story</h3>
+      <p class="lede">We met one grey October at a friend's gallery opening… (edit your love story here).</p>
+    </div>
+
+    <div class="slot" style="--w:300px;--ar:2/3;"><span class="n">Photo Spot — Oval Frame</span><span class="f">photo-oval-gold.png + your photo</span></div>
+
+    <!-- Suite-card navigation: link each to its page in Canva -->
+    <p class="label" style="margin-top:10px;">Explore</p>
+    <div class="suite-nav">
+      <a class="suite-link" href="#details"><div class="slot" style="--w:340px;--ar:2/3;"><span class="n">Details Card → Details page</span><span class="f">suite-details.png</span></div></a>
+      <a class="suite-link" href="#faq"><div class="slot" style="--w:340px;--ar:3/2;"><span class="n">FAQ Card → FAQ page</span><span class="f">suite-details.png (recolor)</span></div></a>
+      <a class="suite-link" href="#rsvp"><div class="slot" style="--w:340px;--ar:3/2;"><span class="n">RSVP Card → RSVP page</span><span class="f">suite-rsvp.png</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 3 · DETAILS ============ -->
+<section data-document-role="page" data-label="Details" id="details">
+  <div class="page stack">
+    <div class="slot" style="--w:120px;--ar:3/2;"><span class="f">gp-sprig.png</span></div>
+    <h2 class="sec-title">The Details</h2>
+
+    <div class="block"><h3>Venue</h3><p class="meta"><strong>Villa Balbiano</strong><br>Ossuccio · Lake Como, Italy</p></div>
+    <div class="block"><h3>The Day</h3><p class="meta">3:30 — Guests arrive · welcome drinks<br>4:00 — Ceremony in the gardens<br>4:45 — Aperitivo &amp; photographs<br>7:00 — Dinner in the Orangery<br>9:30 — First dance &amp; dancing<br>1:00 — Carriages</p></div>
+    <div class="block"><h3>Dress Code &amp; Palette</h3><p class="meta">Black tie · Long dresses<br>Heritage green, ivory &amp; gold</p></div>
+    <div class="slot" style="--w:340px;--ar:2/3;"><span class="n">Venue Map</span><span class="f">suite-map.png</span></div>
+    <div class="block"><h3>Travel &amp; Stay</h3><p class="meta">Fly into Milan Malpensa (MXP), 1 hr by car.<br>Room blocks: Grand Hotel Tremezzo &amp; Villa d'Este.</p></div>
+    <div class="block"><h3>Registry</h3><p class="meta">Your presence is the present. A small registry link lives here.</p></div>
+
+    <a class="back" href="#open">← Back to the invitation</a>
+  </div>
+</section>
+
+<!-- ============ PAGE 4 · FAQ ============ -->
+<section data-document-role="page" data-label="FAQ" id="faq">
+  <div class="page stack">
+    <div class="slot" style="--w:120px;--ar:3/2;"><span class="f">gp-sprig.png</span></div>
+    <h2 class="sec-title">Questions</h2>
+    <div style="width:100%;text-align:left;">
+      <div class="qa"><h3>What should I wear?</h3><p>Black tie — long dresses and dinner jackets. The ceremony is on the lawn.</p></div>
+      <div class="qa"><h3>May I bring a plus-one?</h3><p>Your invitation names everyone we've reserved a seat for.</p></div>
+      <div class="qa"><h3>Are children welcome?</h3><p>An adults-only celebration — a proper night off for the parents among us.</p></div>
+      <div class="qa"><h3>Is there parking at the villa?</h3><p>Valet at the gate; we encourage the hotel shuttle.</p></div>
+    </div>
+    <a class="back" href="#open">← Back to the invitation</a>
+  </div>
+</section>
+
+<!-- ============ PAGE 5 · RSVP ============ -->
+<section data-document-role="page" data-label="RSVP" id="rsvp">
+  <div class="page stack">
+    <div class="slot" style="--w:120px;--ar:3/2;"><span class="f">gp-sprig.png</span></div>
+    <p class="label">Kindly reply by the First of May</p>
+    <h2 class="sec-title">RSVP</h2>
+    <p class="lede">We can hardly wait to celebrate with you.</p>
+    <div class="slot" style="--w:480px;--ar:1/1;">
+      <span class="n">Native Canva Form goes here</span>
+      <span class="f">Elements → Forms → add fields → Submit</span>
+    </div>
+    <a class="back" href="#open">← Back to the invitation</a>
+  </div>
+</section>
+
+<footer style="background:var(--green);color:var(--ivory);text-align:center;padding:56px 24px;">
+  <div style="font-family:var(--display);font-size:36px;letter-spacing:.06em;">E&nbsp;<span style="color:var(--brass-soft);">&amp;</span>&nbsp;T</div>
+  <p style="font-style:italic;margin-top:8px;color:var(--ivory-deep);">Lake Como · the Twelfth of June, 2027</p>
+</footer>
+
+<script>
+  var W=new Date("2027-06-12T16:00:00+02:00").getTime();
+  function t(){var d=W-Date.now();if(d<0)d=0;
+    var g=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};
+    g("cd-days",Math.floor(d/86400000));
+    g("cd-hours",String(Math.floor(d%86400000/3600000)).padStart(2,"0"));
+    g("cd-mins",String(Math.floor(d%3600000/60000)).padStart(2,"0"));
+    g("cd-secs",String(Math.floor(d%60000/1000)).padStart(2,"0"));}
+  t();setInterval(t,1000);
+</script>
