@@ -1,0 +1,203 @@
+<meta charset="utf-8">
+<title>Eleanor & Theodore · Heritage Wedding Website</title>
+<style>
+  :root{
+    --ivory:#F2EEE4;--ivory-deep:#E7E1D2;--paper:#F7F4EC;
+    --green:#1C3A2E;--green-deep:#132A21;--oxblood:#5E2028;
+    --brass:#A8894C;--brass-soft:#C4A86B;--ink:#241F19;--ink-soft:#5A5245;--rule:#CFC6B2;
+    --display:"Didot","Bodoni MT","Hoefler Text",Didone,Garamond,"Times New Roman",serif;
+    --script:"Snell Roundhand","Apple Chancery","Segoe Script",cursive;
+    --body:Garamond,"EB Garamond","Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --label:ui-sans-serif,"Optima","Gill Sans",-apple-system,Segoe UI,sans-serif;
+    --I:https://graphicsgurl.github.io/heritage-wedding-template/img;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;}
+  p{margin:0;} img{display:block;max-width:100%;height:auto;}
+  a{color:inherit;}
+  .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.34em;font-size:12px;font-weight:500;color:var(--brass);}
+  .page{max-width:600px;margin:0 auto;padding:56px 24px 40px;text-align:center;}
+  .stack{display:flex;flex-direction:column;align-items:center;gap:26px;}
+  .names{font-family:var(--display);font-size:clamp(38px,9vw,68px);color:var(--green);line-height:1;}
+  .names span{color:var(--brass);font-style:italic;}
+  .cta{font-family:var(--label);text-transform:uppercase;letter-spacing:.24em;font-size:14px;font-weight:700;color:var(--green);text-decoration:none;}
+  .back{font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:12px;text-decoration:underline;display:inline-block;}
+
+  /* ---- PAGE 2 CLUSTER (overlapping collage — group in Canva for mobile) ---- */
+  .collage{position:relative;width:100%;max-width:520px;margin:0 auto;height:0;padding-bottom:150%;}
+  .collage>*{position:absolute;}
+  .c-env{top:0;left:8%;width:84%;z-index:2;}
+  .c-invite{top:30%;left:0;width:52%;transform:rotate(-4deg);z-index:3;filter:drop-shadow(0 14px 24px rgba(36,31,25,.28));}
+  .c-date{top:22%;right:0;width:50%;transform:rotate(3deg);z-index:3;filter:drop-shadow(0 14px 24px rgba(36,31,25,.28));}
+  .c-detbtn{top:47%;left:52%;width:34%;z-index:6;text-decoration:none;}
+  .c-detbtn .circle{border-radius:50%;background:var(--oxblood);color:var(--paper);aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 12px 26px -8px rgba(0,0,0,.45);}
+  .c-detbtn .k{font-family:var(--label);text-transform:uppercase;letter-spacing:.18em;font-size:9px;}
+  .c-detbtn .s{font-family:var(--script);font-size:26px;line-height:.9;margin-top:2px;}
+  .c-rsvp{top:58%;left:4%;width:52%;transform:rotate(-2deg);z-index:4;filter:drop-shadow(0 14px 24px rgba(36,31,25,.28));}
+  .c-story{top:70%;right:4%;width:46%;transform:rotate(3deg);z-index:4;text-decoration:none;filter:drop-shadow(0 14px 24px rgba(36,31,25,.28));}
+  .c-story .cap{font-family:var(--label);text-transform:uppercase;letter-spacing:.14em;font-size:9px;color:var(--green);margin-top:6px;text-align:center;}
+  .c-floral1{top:44%;left:38%;width:34%;z-index:5;pointer-events:none;}
+  .c-floral2{top:64%;left:40%;width:26%;z-index:5;pointer-events:none;}
+  /* editable text laid over the blank cards */
+  .ov{position:absolute;text-align:center;}
+  .c-invite .ov{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:16%;}
+  .c-invite .ov .t1{font-family:var(--label);text-transform:uppercase;letter-spacing:.14em;font-size:9px;color:var(--ink-soft);}
+  .c-invite .ov .t2{font-family:var(--display);font-size:clamp(15px,3.4vw,22px);color:var(--green);line-height:1.05;}
+  .c-date .ov{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:16%;}
+  .c-date .ov .d{font-family:var(--display);font-size:clamp(13px,3vw,19px);color:var(--green);}
+  .c-date .ov .v{font-family:var(--label);text-transform:uppercase;letter-spacing:.1em;font-size:8px;color:var(--ink-soft);margin-top:4px;}
+  .c-rsvp .ov{inset:0;display:flex;align-items:center;justify-content:center;}
+  .c-rsvp .ov .r{font-family:var(--script);font-size:clamp(20px,5vw,30px);color:var(--oxblood);}
+
+  /* countdown band */
+  .band{background:var(--green);color:var(--ivory);text-align:center;padding:44px 24px;}
+  .band .lab{font-family:var(--display);font-style:italic;font-size:22px;color:var(--brass-soft);margin-bottom:14px;}
+  .countdown{display:flex;justify-content:center;gap:clamp(14px,6vw,40px);}
+  .cd-num{font-family:var(--display);font-size:clamp(30px,7vw,46px);line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-lab{font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:var(--brass-soft);margin-top:6px;}
+  .band .note{font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:9px;color:var(--brass-soft);margin-top:16px;}
+
+  /* generic content pages */
+  .sprig{width:110px;margin:0 auto;}
+  .sec-title{font-size:clamp(30px,6vw,44px);color:var(--green);}
+  .script-title{font-family:var(--script);font-size:clamp(34px,8vw,52px);color:var(--green);}
+  .lede{color:var(--ink-soft);max-width:52ch;margin:0 auto;}
+  .block h3{font-family:var(--script);font-size:30px;color:var(--oxblood);margin-bottom:6px;}
+  .block .meta{color:var(--ink-soft);font-size:16.5px;line-height:1.9;}
+  .swatches{width:min(340px,80%);margin:4px auto;}
+  .swlab{font-family:var(--label);text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ink-soft);}
+  .map{max-width:320px;margin:0 auto;}
+  .polas{position:relative;width:100%;max-width:340px;margin:0 auto;height:0;padding-bottom:90%;}
+  .polas>*{position:absolute;}
+  .pola{background:#fff;padding:10px 10px 26px;box-shadow:0 14px 28px -12px rgba(36,31,25,.4);}
+  .pola img{width:100%;display:block;}
+  .p1{top:0;left:2%;width:52%;transform:rotate(-5deg);z-index:2;}
+  .p2{top:12%;right:0;width:50%;transform:rotate(4deg);z-index:1;}
+  .p3{top:46%;left:16%;width:52%;transform:rotate(-2deg);z-index:3;}
+  .qa{border-top:1px solid var(--rule);padding:20px 0;}
+  .qa h3{font-family:var(--display);font-size:21px;color:var(--green);margin:0 0 6px;}
+  .qa p{color:var(--ink-soft);font-size:15.5px;}
+  .form-slot{width:100%;max-width:460px;aspect-ratio:1/1.05;margin:0 auto;border:1px dashed var(--brass-soft);border-radius:4px;background:var(--paper);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--ink-soft);}
+  .form-slot .n{font-family:var(--label);text-transform:uppercase;letter-spacing:.18em;font-size:11px;color:var(--brass);}
+  .form-slot .f{font-size:13px;font-style:italic;}
+</style>
+
+<!-- PAGE 1 · HOME (closed envelope) -->
+<section data-document-role="page" data-label="Home">
+  <div class="page stack">
+    <p class="label">Together with their families</p>
+    <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/crest-et-gold.png" alt="E&amp;T monogram" style="width:130px;">
+    <h1 class="names">Eleanor <span>&amp;</span> Theodore</h1>
+    <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/env-closed.png" alt="Sealed envelope" style="max-width:500px;">
+    <a class="cta" href="#open">Click to Open&nbsp;&nbsp;↓</a>
+  </div>
+</section>
+
+<!-- PAGE 2 · THE INVITATION (clustered collage) -->
+<section data-document-role="page" data-label="The Invitation" id="open">
+  <div class="page">
+    <div class="collage">
+      <img class="c-env" src="https://graphicsgurl.github.io/heritage-wedding-template/img/env-open.png" alt="Open invitation">
+      <div class="c-invite">
+        <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/suite-invitation.png" alt="Invitation">
+        <div class="ov"><span class="t1">Join us for the wedding of</span><span class="t2">Eleanor<br>&amp;<br>Theodore</span></div>
+      </div>
+      <div class="c-date">
+        <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/suite-details.png" alt="Date">
+        <div class="ov"><span class="d">the Twelfth<br>of June<br>2027</span><span class="v">Villa Balbiano<br>Lake Como</span></div>
+      </div>
+      <a class="c-detbtn" href="#details"><div class="circle"><span class="k">Click for the</span><span class="s">Details</span></div></a>
+      <a class="c-rsvp" href="#rsvp" style="text-decoration:none;">
+        <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/suite-rsvp.png" alt="RSVP">
+        <div class="ov"><span class="r">Kindly RSVP Here</span></div>
+      </a>
+      <a class="c-story" href="#story">
+        <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/photo-oval-gold.png" alt="Our story">
+        <div class="cap">Click for our love story</div>
+      </a>
+      <img class="c-floral1" src="https://graphicsgurl.github.io/heritage-wedding-template/img/floral-spray.png" alt="">
+      <img class="c-floral2" src="https://graphicsgurl.github.io/heritage-wedding-template/img/gp-sprig.png" alt="">
+    </div>
+  </div>
+  <div class="band">
+    <div class="lab">Time to Celebrate</div>
+    <div class="countdown">
+      <div><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
+      <div><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
+      <div><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
+      <div><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+    </div>
+    <div class="note">↑ replace with a TickCounter embed</div>
+  </div>
+</section>
+
+<!-- PAGE 3 · OUR STORY -->
+<section data-document-role="page" data-label="Our Story" id="story">
+  <div class="page stack">
+    <a class="back" href="#open">Click to go back</a>
+    <h2 class="script-title">Our Love Story</h2>
+    <div class="polas">
+      <div class="pola p1"><img src="https://graphicsgurl.github.io/heritage-wedding-template/img/couple-1.png" alt=""></div>
+      <div class="pola p2"><img src="https://graphicsgurl.github.io/heritage-wedding-template/img/couple-1.png" alt=""></div>
+      <div class="pola p3"><img src="https://graphicsgurl.github.io/heritage-wedding-template/img/couple-1.png" alt=""></div>
+    </div>
+    <p class="lede">What started as a chance meeting one grey October became the adventure of a lifetime… (edit your love story here).</p>
+    <a class="back" href="#open">Click to go back</a>
+  </div>
+</section>
+
+<!-- PAGE 4 · THE DETAILS -->
+<section data-document-role="page" data-label="Details" id="details">
+  <div class="page stack">
+    <a class="back" href="#open">Click to go back</a>
+    <h2 class="script-title">The Finer Details</h2>
+    <div class="block"><h3>Ceremony of Love</h3><p class="meta">Four o'clock in the gardens of Villa Balbiano.<br>Half past three to settle in · aperitivo to follow.</p></div>
+    <div class="block"><h3>Our Day at a Glance</h3><p class="meta">4:00 Ceremony · 4:45 Aperitivo<br>7:00 Dinner · 9:30 First dance · 1:00 Carriages</p></div>
+    <div class="block"><h3>Travel &amp; Stay</h3><p class="meta">Fly into Milan Malpensa (MXP), 1 hr by car.<br>Room blocks: Grand Hotel Tremezzo &amp; Villa d'Este.</p></div>
+    <img class="map" src="https://graphicsgurl.github.io/heritage-wedding-template/img/suite-map.png" alt="Venue map">
+    <div class="block">
+      <h3>Dress to Impress</h3>
+      <p class="meta">Black tie · long dresses. Our palette:</p>
+      <img class="swatches" src="https://graphicsgurl.github.io/heritage-wedding-template/img/gp-swatches.png" alt="Palette">
+      <p class="swlab">Heritage green · ivory · antique gold · oxblood</p>
+    </div>
+    <div class="block"><h3>Gift Registry</h3><p class="meta">Your presence is the greatest gift. A registry link lives here.</p></div>
+    <h3 style="font-family:var(--script);font-size:30px;color:var(--green);margin-top:10px;">Frequently Asked Questions</h3>
+    <div style="width:100%;text-align:left;">
+      <div class="qa"><h3>What should I wear?</h3><p>Black tie — long dresses and dinner jackets.</p></div>
+      <div class="qa"><h3>May I bring a plus-one?</h3><p>Your invitation names everyone we've reserved a seat for.</p></div>
+      <div class="qa"><h3>Are children welcome?</h3><p>An adults-only celebration — a proper night off.</p></div>
+      <div class="qa"><h3>Is there parking?</h3><p>Valet at the gate; we encourage the hotel shuttle.</p></div>
+    </div>
+    <a class="back" href="#open">Click to go back</a>
+  </div>
+</section>
+
+<!-- PAGE 5 · RSVP -->
+<section data-document-role="page" data-label="RSVP" id="rsvp">
+  <div class="page stack">
+    <a class="back" href="#open">Click to go back</a>
+    <img class="sprig" src="https://graphicsgurl.github.io/heritage-wedding-template/img/suite-rsvp.png" alt="" style="width:200px;">
+    <h2 class="script-title">Will you be joining us?</h2>
+    <p class="lede">We can hardly wait to celebrate with you. Please reply below.</p>
+    <div class="form-slot"><span class="n">Native Canva Form goes here</span><span class="f">Elements → Forms → add fields → Submit</span></div>
+    <a class="back" href="#open">Click to go back</a>
+  </div>
+</section>
+
+<footer style="background:var(--green);color:var(--ivory);text-align:center;padding:48px 24px;">
+  <img src="https://graphicsgurl.github.io/heritage-wedding-template/img/gp-footer-band.png" alt="" style="width:min(460px,80%);margin:0 auto 8px;filter:brightness(0) invert(1) opacity(.7);">
+  <div style="font-family:var(--display);font-size:34px;letter-spacing:.06em;">Eleanor &amp; Theodore</div>
+  <div style="letter-spacing:.3em;margin-top:4px;">12 · 06 · 2027</div>
+</footer>
+
+<script>
+  var W=new Date("2027-06-12T16:00:00+02:00").getTime();
+  function t(){var d=W-Date.now();if(d<0)d=0;var g=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};
+    g("cd-days",Math.floor(d/86400000));g("cd-hours",String(Math.floor(d%86400000/3600000)).padStart(2,"0"));
+    g("cd-mins",String(Math.floor(d%3600000/60000)).padStart(2,"0"));g("cd-secs",String(Math.floor(d%60000/1000)).padStart(2,"0"));}
+  t();setInterval(t,1000);
+</script>
